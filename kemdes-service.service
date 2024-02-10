@@ -1,0 +1,18 @@
+[Unit]
+Description=KEMDES Daemon Service
+
+[Service]
+Type=simple
+ExecStart=/home/fsdev1/kemdes_test/kemdes/dist/kemdes https://kemdes.kabaniconnect.com 443
+WorkingDirectory=/home/fsdev1/kemdes_test/kemdes/dist
+User=root
+Group=root
+PermissionsStartOnly=true
+ExecStartPre=/bin/chown root:root /home/fsdev1/kemdes_test/kemdes/dist
+ExecStartPre=/bin/chmod 4755 /home/fsdev1/kemdes_test/kemdes/dist
+Restart=always
+RestartSec=3
+
+
+[Install]
+WantedBy=multi-user.target
